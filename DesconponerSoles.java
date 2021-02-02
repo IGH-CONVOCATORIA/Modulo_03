@@ -20,17 +20,22 @@ public class DesconponerSoles {
         
         //declaraciones
         Scanner sc = new Scanner(System.in);
-        int billete200=0;
-        int billete100=0;
-        int billete50=0;
-        int billete20=0;
-        int billete10=0;
-        int billete5=0;
-        int billete2=0;
-        int billete1=0;
+       
         
-        Integer resultado[] = new Integer[13];
-        int soles,saldo;
+        
+        Integer billete[] = new Integer[10];
+        Integer cantidad[] = new Integer[10];
+        
+        billete[0]=200;
+        billete[1]=100;
+        billete[2]=50;
+        billete[3]=20;
+        billete[4]=10;
+        billete[5]=5;
+        billete[6]=2;
+        billete[7]=1;
+        
+        int soles,calculo=0,residuo=0,saldo=0,idxbillete=0;
         
         //ingreso de datos
         System.out.print("Ingrese el importe en soles: ");
@@ -39,47 +44,25 @@ public class DesconponerSoles {
         
         //proceso
         do {
-            if (soles>=200)
-                billete200=soles%200;
-            
-            saldo=soles - (billete200*200);
-            if (saldo>=100)
-                billete100=saldo%100;
-            
-            saldo=saldo - (billete100*100);
-            System.out.println(saldo);
-            if (saldo>=50)
-                billete50=saldo%100;
-            
-            saldo=saldo - (billete50*50);
-            System.out.println(saldo);
-            if (saldo>=20)
-                billete20=saldo%20;
-            
-            saldo=saldo - (billete20*20);
-            System.out.println(saldo);
-            if (saldo>=10)
-                billete10=saldo%10;
-            
-            saldo=saldo - (billete10*10);
-            System.out.println(saldo);
-            if (saldo>=5)
-                billete5=saldo%5;
-            
-            saldo=saldo - (billete5*5);
-            System.out.println(saldo);
-            if (saldo>=2)
-                billete2=saldo%2;
-            
-            saldo=saldo - (billete2*2);
-            System.out.println(saldo);
-            if (saldo>=1)
-                billete1=saldo%1;
-            
-        }while(saldo==0);
+            calculo=0;
+            if (soles>=billete[idxbillete])
+            {
+                residuo=soles%billete[idxbillete];
+                calculo=(soles-residuo)/billete[idxbillete];
+                soles=residuo;
+            }
+             
+            cantidad[idxbillete]=calculo;
+            idxbillete++;
+        }while(idxbillete<8);
         
-           
-        System.out.println(saldo);
+        
+        //reporte
+        for (int x=0;x<=7;++x){
+            if (cantidad[x]>0)
+                System.out.println("BILLETE "+billete[x]+": "+cantidad[x]);
+        }
+        
         
     }
    
