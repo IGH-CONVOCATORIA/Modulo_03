@@ -12,5 +12,4 @@ En este repositorio se encuentran resueltos ejercicios de estructuras repetitiva
 
 -`Evitar en lo posible programar con while`: Se debe evitar en lo posible programar con bucles while para no hacer el código dificil de entender.
 
--``: En estructuras complejas .
 
